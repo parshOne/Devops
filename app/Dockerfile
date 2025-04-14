@@ -1,5 +1,5 @@
 # Use the official Python image as the base image
-FROM python:3.9-slim
+FROM python
 
 # Create and change to the app directory
 WORKDIR /usr/src/app
