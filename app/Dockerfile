@@ -1,14 +1,12 @@
 # Use the official Python image as the base image
-FROM python:3.9-slim
+FROM python
 
 # Create and change to the app directory
 WORKDIR /usr/src/app
 
 # Copy the requirements file and install dependencies
-
-RUN python3 -m venv venv
-ENV PATH="/usr/src/app/venv/bin:$PATH"
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt ./
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
 COPY . .
