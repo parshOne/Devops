@@ -5,8 +5,10 @@ FROM python:3.9-slim
 WORKDIR /usr/src/app
 
 # Copy the requirements file and install dependencies
-COPY requirements.txt ./
-RUN pip3 install --no-cache-dir -r requirements.txt
+
+RUN python3 -m venv venv
+ENV PATH="/usr/src/app/venv/bin:$PATH"
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
 COPY . .
